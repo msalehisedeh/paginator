@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoelace Pagination Demo</title>
+
+  <link rel="stylesheet" href="./themes/light.css" />
+
+  <script type="module" src="./index.js"></script>
+  <style>
+    :root {
+      --sl-page-counter-alignment: right;
+      --sl-page-counter-label-alignment: right;
+      --sl-top-spacing: 5px;
+    }
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    #poaginator2 {
+      --sl-selection-width: 130px;
+    }
+    #poaginator3 {
+      --sl-selection-width: 150px;
+    }
+    @media screen and (max-width: 900px) {
+      sl-paginator {
+        --sl-paginator-direction: column;
+        --sl-align-selerction: flex-end;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Pagination!</h1>
+    <sl-page-counter collectionSize="100" pageSize="10"></sl-page-counter>
+    <br />
+    <br />
+    <sl-page-counter collectionSize="100" pageSize="10" variant="primary"></sl-page-counter>
+    <br />
+    <br />
+    <sl-paginator  id="poaginator"><span slot="paginationAddon">Wow!!</span></sl-paginator>
+    <br />
+    <br />
+    <sl-paginator  id="poaginator2" pill="true" variant="neutral" size="medium"><span slot="paginationAddon">Wow!!</span></sl-paginator>
+    <br />
+    <br />
+    <sl-paginator  id="poaginator3" size="large"><span slot="paginationAddon">Wow!!</span></sl-paginator>
+  </main>
+  <script>
+    document.querySelector('sl-page-counter').addEventListener('sl-page-change', (e) => {
+      console.log('Page changed to:', e.detail.value);
+    });
+
+    document.querySelector('#poaginator').addEventListener('sl-page-change', (e) => {
+      e.target.detail = 'Showing ' + e.detail.value + ' of:';
+    });
+    document.querySelector('#poaginator2').addEventListener('sl-page-change', (e) => {
+      e.target.detail = 'Showing ' + e.detail.value + ' of:';
+    });
+    document.querySelector('#poaginator3').addEventListener('sl-page-change', (e) => {
+      e.target.detail = 'Showing ' + e.detail.value + ' of:';
+    });
+    var paginator = document.getElementById('poaginator');
+    var paginator2 = document.getElementById('poaginator2');
+    var paginator3 = document.getElementById('poaginator3');
+    if (paginator) {
+      paginator.showPaginator = true;
+      paginator.pageOptions = '10,20,50';
+      paginator.detail = 'Showing 1 of';
+      paginator.description = 'Items per page';
+      paginator.collectionSize = 500;
+      paginator.pageSize = 10;
+      paginator.currentPage = 1;
+    }
+    if (paginator2) {
+      paginator2.showPaginator = true;
+      paginator2.pageOptions = '10,20,50';
+      paginator2.detail = 'Showing 1 of';
+      paginator2.description = 'Items per page';
+      paginator2.collectionSize = 500;
+      paginator2.pageSize = 10;
+      paginator2.currentPage = 1;
+    }
+    if (paginator3) {
+      paginator3.showPaginator = true;
+      paginator3.pageOptions = '10,20,50';
+      paginator3.detail = 'Showing 1 of';
+      paginator3.description = 'Items per page';
+      paginator3.collectionSize = 500;
+      paginator3.pageSize = 10;
+      paginator3.currentPage = 1;
+    }
+  </script>
+</body>
+</html>

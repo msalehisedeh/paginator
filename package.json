@@ -1,0 +1,37 @@
+{
+  "name": "pagination",
+  "version": "1.0.0",
+  "description": "A pagination component using Shoelace and Lit.",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve dist",
+    "build": "rollup -c"
+  },
+  "keywords": [
+    "pagination",
+    "shoelace",
+    "lit",
+    "web-components"
+  ],
+  "author": "Masoud Salehisedeh",
+  "license": "ISC",
+  "dependencies": {
+    "@shoelace-style/shoelace": "^2.20.1",
+    "lit": "^3.3.1",
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-image": "^3.0.3",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@types/minimatch": "^6.0.0",
+    "rollup": "^4.50.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-css-only": "^4.5.4",
+    "rollup-plugin-ts": "^3.4.5",
+    "serve": "^14.2.4",
+    "typescript": "^5.9.2"
+  }
+}

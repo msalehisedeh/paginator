@@ -30,6 +30,13 @@ pageCounter
 
 ```
 
+## events
+| Attribute                         | Description                                                                                         |
+|-----------------------------------|-----------------------------------------------------------------------------------------------------|
+| sl-page-ready                     | triggered when paginator is displayed for the first time.                                           |
+| sl-page-change                    | triggered when a page is selected or page size is changed.                                          |
+
+
 ## Slots
 | Attribute                         | Description                                                                                         |
 |-----------------------------------|-----------------------------------------------------------------------------------------------------|
@@ -66,8 +73,8 @@ Create a css file with the following and modify its value to fit your applicatio
 | disablePageSizing   | Boolean  | disable the dropdown.                                                                                   |
 | showPaginator       | Boolean  | Show the page counter.                                                                                  |
 | disablePaginator    | Boolean  | disable the pagination.                                                                                 |
-| startDirectionLabel | String   | Start pagination label. Default is "Prev".                                                              |
-| endDirectionLabel   | String   | End pagination label. Default is "Next".                                                                |
+| previousButtonLabel | String   | Start pagination label. Default is "Prev".                                                              |
+| nextButtonLabel     | String   | End pagination label. Default is "Next".                                                                |
 | variant             | String   | color settings of the paginator. 'default', 'primary', 'neutral'.                                       |
 
 ## Revision History
