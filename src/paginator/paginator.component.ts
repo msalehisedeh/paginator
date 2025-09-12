@@ -10,7 +10,7 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/select/select.js';
 import '@shoelace-style/shoelace/dist/components/option/option.js';
 
-import './pagination.component';
+import './page-counter.component';
 
 @customElement('sl-paginator')
 export class Paginator extends LitElement {
@@ -47,27 +47,16 @@ export class Paginator extends LitElement {
       align-self: var(--sl-align-selerction, flex-start);
       padding-top: var(--sl-top-spacing);
     }
-    .size-selection .selector[variant='primary']::part(combobox) {
-      background-color: var(--sl-color-primary-600);
-      border-color: var(--sl-color-primary-600);
-      color: var(--sl-color-neutral-0);
-    }
-    .size-selection .selector[variant='primary']::part(display-input) {
-      color: var(--sl-color-neutral-0);
-    }
-    .size-selection .selector[variant='neutral']::part(combobox) {
-      background-color: var(--sl-color-neutral-600);
-      border-color: var(--sl-color-neutral-600);
-      color: var(--sl-color-neutral-0);
-    }
-    .size-selection .selector[variant='neutral']::part(display-input) {
-      color: var(--sl-color-neutral-0);
-    }
     .size-selection .selector {
       display: block;
       float: left;
       align-content: center;
       width: var(--sl-selection-width, 111px);
+    }
+    .size-selection .selector::part(combobox) {
+      background-color: var(--sl-counter-background-color);
+      border-color: var(--sl-counter-border-color);
+      color: var(--sl-counter-text-color);
     }
     .size-selection .label {
       white-space: nowrap;
@@ -79,6 +68,27 @@ export class Paginator extends LitElement {
     }
     .size-selection .label:last-child {
       padding-left: 5px;
+    }
+    .size-selection .selector[variant='primary']::part(combobox) {
+      background-color: var(--sl-counter-background-color, var(--sl-color-primary-600));
+      border-color: var(--sl-counter-border-color, var(--sl-color-primary-600));
+      color: var(--sl-counter-text-color, var(--sl-color-neutral-0));
+    }
+    .size-selection .selector[variant='primary']::part(display-input),
+    .size-selection .selector[variant='primary']::part(expand-icon) {
+      color: var(--sl-color-neutral-0);
+    }
+    .size-selection .selector[variant='neutral']::part(combobox) {
+      background-color: var(--sl-counter-background-color, var(--sl-color-neutral-600));
+      border-color: var(--sl-counter-border-color, var(--sl-color-neutral-600));
+      color: var(--sl-counter-text-color, var(--sl-color-neutral-0));
+    }
+    .size-selection .selector[variant='neutral']::part(display-input),
+    .size-selection .selector[variant='neutral']::part(expand-icon) {
+      color: var(--sl-color-neutral-0);
+    }
+    .size-selection .selector::part(combobox).disabled {
+      bopavity: 0.8
     }
   `;
 
@@ -108,7 +118,6 @@ export class Paginator extends LitElement {
     this.pagination.pageSize = parseInt(this.selector.value, 10);
     this.pagination.currentPage = 1;
     this.pagination.activePage = 1;
-    this.pagination.page = 1;
     this.pagination.goTo(1);
 
     event.preventDefault();
@@ -152,11 +161,12 @@ export class Paginator extends LitElement {
             id=${this.id ? this.id + '-pagination' : 'pagination'}
             ?pill=${this.pill}
             .collectionSize=${this.collectionSize ?? 10}
-            .page=${this.currentPage ?? 1}
+            .activePage=${this.currentPage ?? 1}
             .pageSize=${this.pageSize ?? 10}
             .maxSize=${this.maxSlots}
             ?disabled=${this.disablePaginator ?? false}
             .rotate=${true}
+            .showEllipses=${true}
             ?showEllipses=${this.showDirections}
             ?showBoundaries=${this.showLabels}
             .previousButtonLabel=${ifDefined(this.previousButtonLabel)}

@@ -23,6 +23,13 @@
     }
     #poaginator3 {
       --sl-selection-width: 150px;
+      --sl-counter-background-color: cyan;
+      --sl-counter-border-color: cyan;
+      --sl-counter-text-color: blue;
+    }
+    #padded {
+      --sl-pagination-counter-padding: 2px;
+      --sl-pagination-counter-radius: 4px;
     }
     @media screen and (max-width: 900px) {
       sl-paginator {
@@ -38,7 +45,7 @@
     <sl-page-counter collectionSize="100" pageSize="10"></sl-page-counter>
     <br />
     <br />
-    <sl-page-counter collectionSize="100" pageSize="10" variant="primary"></sl-page-counter>
+    <sl-page-counter id="padded" collectionSize="100" pageSize="10" variant="primary"></sl-page-counter>
     <br />
     <br />
     <sl-paginator  id="poaginator"><span slot="paginationAddon">Wow!!</span></sl-paginator>
@@ -85,6 +92,8 @@
       paginator2.currentPage = 1;
     }
     if (paginator3) {
+      // paginator3.disablePageSizing = true;
+      // paginator3.disablePaginator = true;
       paginator3.showPaginator = true;
       paginator3.pageOptions = '10,20,50';
       paginator3.detail = 'Showing 1 of';

@@ -29,32 +29,75 @@ Paginator
 pageCounter
 
 ```
+## PageCounter Component
 
-## events
+### Events
+| Attribute                         | Description                                                                                         |
+|-----------------------------------|-----------------------------------------------------------------------------------------------------|
+| sl-page-change                    | triggered when a page is selected or page size is changed.                                          |
+
+### Tokens
+| Attribute                         | Description                                                                                         |
+|-----------------------------------|-----------------------------------------------------------------------------------------------------|
+| --sl-pagination-boundary-padding  | Will space out the padding of pagination counter's boundary buttons.                                |
+| --sl-page-counter-alignment       | set the position of counter to the left or right or center.                                         |
+| --sl-counter-background-color     | sets the background color of buttons other than colors defined by variant option if not assigned.   |
+| --sl-counter-border-color         | sets the border color of buttons other than colors defined by variant option if not assigned.       |
+| --sl-counter-yext-color           | sets the text color of buttons other than colors defined by variant option if not assigned.         |
+| --sl-pagination-side-padding      | sets the padding of pagination as a whole.                                                          |
+| --sl-pagination-counter-padding   | sets padding between counter buttons.                                                               |
+| --sl-pagination-counter-radius    | sets border radious between counter buttons.                                                        |
+
+
+### Attributes
+| Attribute          |Type       | Description                                                                                             |
+|--------------------|-----------|---------------------------------------------------------------------------------------------------------|
+| size                | String   | Paginator visual size (height, padding of each page slot). 'small', 'medium', 'large'. Default is small |
+| pill                | Boolean  | Show curves on sides of page counter and dropdown.                                                      |
+| showDirections      | Boolean  | Show arrow icons on the page counter.                                                                   |
+| pageSize            | Number   | number of items per page.                                                                               |
+| collectionSize      | Number   | total items to be paginated.                                                                            |
+| previousButtonLabel | String   | Start pagination label. Default is "Prev".                                                              |
+| nextButtonLabel     | String   | End pagination label. Default is "Next".                                                                |
+| variant             | String   | color settings of the paginator. 'default', 'primary', 'neutral'.                                       |
+| activePage          | Number   | Inicated the page to be displayed as active/selected.                                                   |
+| maxSize             | Number   | max number of buttons to be displayed in the pagination.                                                |
+| disabled            | Boolean  | disable the entire pagination.                                                                          |
+| rotate              | Boolean  | Enables number/symbol rotation in pagination slots if number of pages are more than maxSize.            |
+| showBoundaries      | Boolean  | Allows boundary buttons display.                                                                        |
+| showEllipses        | Boolean  | Includes ellipses section between the pagination buttons if roltation is enabled and number of pages are more than maxSize.      |
+| label               | String   | Label to be read by screen reader. Default is 'Paginator'.                                              |
+| startBoundaryLabel  | String   | label to be displayed on start boundary (e.g., 'Previous).                                              |
+| endBoundaryLabel    | String   | label to be displayed on end boundary (e.g., 'Next).                                                    |
+| symbols             | Array<any> | if given will display the symbols in the array instead of page numbers.                               |
+
+
+## Paginator Component
+
+### events
 | Attribute                         | Description                                                                                         |
 |-----------------------------------|-----------------------------------------------------------------------------------------------------|
 | sl-page-ready                     | triggered when paginator is displayed for the first time.                                           |
 | sl-page-change                    | triggered when a page is selected or page size is changed.                                          |
 
 
-## Slots
+### Slots
 | Attribute                         | Description                                                                                         |
 |-----------------------------------|-----------------------------------------------------------------------------------------------------|
 | paginationAddon                   | Creates a section to display label for the pagination counter.                                      |
 
-## Design system
+### Design system
 Create a css file with the following and modify its value to fit your application needs. Then include it in root of application css file.
 
 | Attribute                         | Description                                                                                         |
 |-----------------------------------|-----------------------------------------------------------------------------------------------------|
-| --sl-page-counter-alignment       | set the position of counter to the left or right or center.                                         |
 | --sl-page-counter-label-alignment | set the counter slot position.                                                                      |
 | --sl-top-spacing                  | add top spacing to the pagination.                                                                  |
 | --sl-selection-width              | set the width of the dropdown.                                                                      |
 | --sl-paginator-direction          | set the direction of dropdown section and counter to row or column.                                 |
 | --sl-align-selerction             | set the dropdown section alignment to the left, right, or center. this would be ideal to manage smaller view frames. |
 
-## Attributes
+### Attributes
 
 | Attribute          |Type       | Description                                                                                             |
 |--------------------|-----------|---------------------------------------------------------------------------------------------------------|
@@ -76,6 +119,7 @@ Create a css file with the following and modify its value to fit your applicatio
 | previousButtonLabel | String   | Start pagination label. Default is "Prev".                                                              |
 | nextButtonLabel     | String   | End pagination label. Default is "Next".                                                                |
 | variant             | String   | color settings of the paginator. 'default', 'primary', 'neutral'.                                       |
+
 
 ## Revision History
 
