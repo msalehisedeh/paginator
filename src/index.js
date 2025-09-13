@@ -4,5 +4,12 @@ import { PageCounter } from './paginator/page-counter.component';
 export { Paginator };
 export { PageCounter };
 
-import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
+import { setBasePath, registerIconLibrary } from '@awesome.me/webawesome/dist/webawesome.js';
 setBasePath('./');
+
+registerIconLibrary('hack', {
+    resolver: name => `/hack/icons/${name}.svg`,
+    mutator: svg => {
+      svg.setAttribute('fill', 'currentColor');
+    }
+});

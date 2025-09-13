@@ -4,35 +4,35 @@ import { when } from 'lit/directives/when.js';
 import { query } from 'lit/decorators/query.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-import '@shoelace-style/shoelace/dist/components/button/button.js';
-import '@shoelace-style/shoelace/dist/components/button-group/button-group.js';
-import '@shoelace-style/shoelace/dist/components/icon/icon.js';
-import '@shoelace-style/shoelace/dist/components/select/select.js';
-import '@shoelace-style/shoelace/dist/components/option/option.js';
+import '@awesome.me/webawesome/dist/components/button/button.js';
+import '@awesome.me/webawesome/dist/components/button-group/button-group.js';
+import '@awesome.me/webawesome/dist/components/icon/icon.js';
+import '@awesome.me/webawesome/dist/components/select/select.js';
+import '@awesome.me/webawesome/dist/components/option/option.js';
 
 import './page-counter.component';
 
-@customElement('sl-paginator')
+@customElement('wa-paginator')
 export class Paginator extends LitElement {
   static styles = css`
     :host {
       display: flex;
       width: 100%;
-      flex-direction: var(--sl-paginator-direction, row);
+      flex-direction: var(--wa-paginator-direction, row);
       justify-content: space-between;
-      --sl-select-padding: 0 13px;
+      --wa-spacing-3: 0 13px;
     }
     .page-counter {
       float: right;
       display: flex;
-      padding-top: var(--sl-top-spacing);
+      padding-top: var(--wa-top-spacing);
     }
     .page-counter .label {
       white-space: nowrap;
       align-content: center;
       display: inline-block;
       padding: 0 5px;
-      text-align: var(--sl-page-counter-label-alignment, right);
+      text-align: var(--wa-page-counter-label-alignment, right);
     }
     .page-counter span {
       height: 27px;
@@ -43,20 +43,20 @@ export class Paginator extends LitElement {
     .size-selection {
       float: left;
       display: flex;
-      margin: var(--sl-spacing-1g) 0;
-      align-self: var(--sl-align-selerction, flex-start);
-      padding-top: var(--sl-top-spacing);
+      margin: var(--wa-spacing-6) 0;
+      align-self: var(--wa-align-selerction, flex-start);
+      padding-top: var(--wa-top-spacing);
     }
     .size-selection .selector {
       display: block;
       float: left;
       align-content: center;
-      width: var(--sl-selection-width, 111px);
+      width: var(--wa-selection-width, 111px);
     }
     .size-selection .selector::part(combobox) {
-      background-color: var(--sl-counter-background-color);
-      border-color: var(--sl-counter-border-color);
-      color: var(--sl-counter-text-color);
+      background-color: var(--wa-counter-background-color);
+      border-color: var(--wa-counter-border-color);
+      color: var(--wa-counter-text-color);
     }
     .size-selection .label {
       white-space: nowrap;
@@ -69,23 +69,23 @@ export class Paginator extends LitElement {
     .size-selection .label:last-child {
       padding-left: 5px;
     }
-    .size-selection .selector[variant='primary']::part(combobox) {
-      background-color: var(--sl-counter-background-color, var(--sl-color-primary-600));
-      border-color: var(--sl-counter-border-color, var(--sl-color-primary-600));
-      color: var(--sl-counter-text-color, var(--sl-color-neutral-0));
+    .size-selection .selector.primary::part(combobox) {
+      background-color: var(--wa-counter-background-color, var(--wa-color-brand-fill-loud));
+      border-color: var(--wa-counter-border-color, var(--wa-color-brand-fill-loud));
+      color: var(--wa-counter-text-color, var(--wa-color-neutral-on-loud));
     }
-    .size-selection .selector[variant='primary']::part(display-input),
-    .size-selection .selector[variant='primary']::part(expand-icon) {
-      color: var(--sl-color-neutral-0);
+    .size-selection .selector.primary::part(display-input),
+    .size-selection .selector.primary::part(expand-icon) {
+      color: var(--wa-color-neutral-on-loud);
     }
-    .size-selection .selector[variant='neutral']::part(combobox) {
-      background-color: var(--sl-counter-background-color, var(--sl-color-neutral-600));
-      border-color: var(--sl-counter-border-color, var(--sl-color-neutral-600));
-      color: var(--sl-counter-text-color, var(--sl-color-neutral-0));
+    .size-selection .selector.neutral::part(combobox) {
+      background-color: var(--wa-counter-background-color, var(--wa-color-on-quiet));
+      border-color: var(--wa-counter-border-color, var(--wa-color-neutral-loud));
+      color: var(--wa-counter-text-color, var(--wa-color-neutral-on-loud));
     }
-    .size-selection .selector[variant='neutral']::part(display-input),
-    .size-selection .selector[variant='neutral']::part(expand-icon) {
-      color: var(--sl-color-neutral-0);
+    .size-selection .selector.neutral::part(display-input),
+    .size-selection .selector.neutral::part(expand-icon) {
+      color: var(--wa-color-neutral-on-loud);
     }
     .size-selection .selector::part(combobox).disabled {
       bopavity: 0.8
@@ -111,7 +111,7 @@ export class Paginator extends LitElement {
   @property({ type: Boolean }) previousButtonLabel = 'Prev';
   @property({ type: Boolean }) nextButtonLabel = 'Next';
 
-  @query('sl-page-counter') pagination: any;
+  @query('wa-page-counter') pagination: any;
   @query('.selector') selector: any;
 
   protected selectPageSize(event: CustomEvent) {
@@ -123,8 +123,8 @@ export class Paginator extends LitElement {
     event.preventDefault();
     event.stopPropagation();
 
-    this.dispatchEvent(new CustomEvent('sl-page-change', {
-      detail: { source: 'sl-page-counter', value: 1 },
+    this.dispatchEvent(new CustomEvent('wa-page-change', {
+      detail: { source: 'wa-page-counter', value: 1 },
       bubbles: true,
       composed: true
     }));
@@ -135,18 +135,17 @@ export class Paginator extends LitElement {
       <div class="size-selection">
         ${when(this.detail, () => html`<div class="label" id=${this.id ? this.id + '-detail' : 'detail'}>${this.detail}</div>`)}
         ${when(this.pageOptions, () => html`
-          <sl-select
-            class="selector"
+          <wa-select
+            class="selector ${this.variant}"
             value=${this.pageSize}
-            variant=${this.variant}
             ?disabled=${this.disablePageSizing}
             size=${this.size}
             id=${this.id ? this.id + '-page-size' : 'page-size'}
             ?pill=${this.pill}
             @sl-change=${(event: CustomEvent) => this.selectPageSize(event)}
           >
-            ${this.pageOptions.split(',').map(item => html`<sl-option value=${item}>${item}</sl-option>`)}
-          </sl-select>
+            ${this.pageOptions.split(',').map(item => html`<wa-option value=${item}>${item}</wa-option>`)}
+          </wa-select>
         `)}
         ${when(this.description, () => html`<div class="label" id=${this.id ? this.id + '-description' : 'description'}>${this.description}</div>`)}
       </div>
@@ -155,7 +154,7 @@ export class Paginator extends LitElement {
           <slot name="paginationAddon"></slot>
         </div>
         ${when(this.showPaginator, () => html`
-          <sl-page-counter
+          <wa-page-counter
             size=${this.size}
             variant=${this.variant}
             id=${this.id ? this.id + '-pagination' : 'pagination'}
@@ -171,7 +170,7 @@ export class Paginator extends LitElement {
             ?showBoundaries=${this.showLabels}
             .previousButtonLabel=${ifDefined(this.previousButtonLabel)}
             .nextButtonLabel=${ifDefined(this.nextButtonLabel)}
-          ></sl-page-counter>
+          ></wa-page-counter>
         `)}
       </div>
     `;
@@ -180,6 +179,6 @@ export class Paginator extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-paginator': Paginator;
+    'wa-paginator': Paginator;
   }
 }

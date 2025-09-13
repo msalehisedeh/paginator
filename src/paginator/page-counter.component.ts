@@ -2,9 +2,9 @@ import { LitElement, html, css } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import { when } from 'lit/directives/when.js';
 
-import '@shoelace-style/shoelace/dist/components/button/button.js';
-import '@shoelace-style/shoelace/dist/components/button-group/button-group.js';
-import '@shoelace-style/shoelace/dist/components/icon/icon.js';
+import '@awesome.me/webawesome/dist/components/button/button.js';
+import '@awesome.me/webawesome/dist/components/button-group/button-group.js';
+import '@awesome.me/webawesome/dist/components/icon/icon.js';
 
 export interface PaginationItemInterface {
   index: number;
@@ -12,33 +12,33 @@ export interface PaginationItemInterface {
   disabled?: boolean;
 }
 
-@customElement('sl-page-counter')
+@customElement('wa-page-counter')
 export class PageCounter extends LitElement {
   static styles = css`
     :host {
       outline-style: none;
       display: inline-block;
       width: 100%;
-      text-align: var(--sl-page-counter-alignment);
+      text-align: var(--wa-page-counter-alignment);
     }
 
     .button-group:not(:last-of-type) {
-      margin-right: var(--sl-spacing-x-small);
+      margin-right: var(--wa-spacing-2);
     }
 
     .button {
-      margin: var(--sl-spacing-1g) 0;
-      padding: var(--sl-spacing-xxs) var(--sl-spacing-xxs);
+      margin: var(--wa-spacing-6) 0;
+      padding: var(--wa-spacing-1) var(--wa-spacing-1);
     }
     .button.primary {
-      --sl-counter-text-color: var(--sl-color-neutral-0);
-      --sl-counter-background-color: var(--sl-color-primary-600);
-      --sl-counter-border-color: var(--sl-color-primary-600);
+      --wa-counter-text-color: var(--wa-color-neutral-on-loud);
+      --wa-counter-background-color: var(--wa-color-brand-fill-loud);
+      --wa-counter-border-color: var(--wa-color-brand-fill-loud);
     }
     .button.neutral {
-      --sl-counter-text-color: var(--sl-color-neutral-0);
-      --sl-counter-background-color: var(--sl-color-neutral-600);
-      --sl-counter-border-color: var(--sl-color-neutral-600);
+      --wa-counter-text-color: var(--wa-color-neutral-on-loud);
+      --wa-counter-background-color: var(--wa-color-on-quiet);
+      --wa-counter-border-color: var(--wa-color-neutral-loud);
     }
     .button:focus, 
     .button:hover {
@@ -47,17 +47,17 @@ export class PageCounter extends LitElement {
 
     .button::part(base) {
       height: 100%;
-      border: 1px solid var(--sl-button-border-color, var(--sl-button-primary-bg));
-      font-weight: var(--sl-button-label-font-weight);
-      background-color: var(--sl-counter-background-color, var(--sl-color-neutral-0));
-      border-color: var(--sl-counter-border-color , var(--sl-input-border-color));
-      color: var(--sl-counter-text-color, var(--sl-color-neutral-700));
+      border: 1px solid var(--wa-button-border-color, var(--wa-color-neutral-on-quiet));
+      font-weight: var(--wa-font-weight-medium);
+      background-color: var(--wa-counter-background-color, var(--wa-color-neutral-on-loud));
+      border-color: var(--wa-counter-border-color , var(--wa-color-neutral-border-normal));
+      color: var(--wa-counter-text-color, var(--wa-color-neutral-50));
     }
 
     .button.active::part(base) {
-      color: var(--sl-color-surface-fg-brand-primary);
-      background-color: var(--sl-counter-text-color, var(--sl-color-neutral-0));
-      border-color: var(--sl-counter-background-color , var(--sl-input-border-color));
+      color: var(--wa-color-brand-on-loud);
+      background-color: var(--wa-counter-text-color, var(--wa-color-neutral-on-loud));
+      border-color: var(--wa-counter-background-color , var(--wa-color-neutral-border-normal));
     }
 
     .button::part(base):disabled {
@@ -69,7 +69,7 @@ export class PageCounter extends LitElement {
     }
 
     .button.side.left {
-      margin-right: var(--sl-pagination-side-padding);
+      margin-right: var(--wa-pagination-side-padding);
     }
 
     .button.labeled {
@@ -82,22 +82,22 @@ export class PageCounter extends LitElement {
     }
 
     .button.counter {
-      margin: 0 var(--sl-pagination-counter-padding, 0);
+      margin: 0 var(--wa-pagination-counter-padding, 0);
     }
 
     .button.counter::part(base) {
-      border-radius: var(--sl-pagination-counter-radius, var(--sl-radius-xs));
+      border-radius: var(--wa-pagination-counter-radius, var(--wa-radius-xs));
     }
     .button.side.right {
-      margin-left: var(--sl-pagination-side-padding);
+      margin-left: var(--wa-pagination-side-padding);
     }
 
     .button.boundary.left {
-      margin-right: var(--sl-pagination-boundary-padding);
+      margin-right: var(--wa-pagination-boundary-padding);
     }
 
     .button.boundary.right {
-      margin-left: var(--sl-pagination-boundary-padding);
+      margin-left: var(--wa-pagination-boundary-padding);
     }
   `;
 
@@ -130,8 +130,8 @@ export class PageCounter extends LitElement {
     event.preventDefault();
     event.stopPropagation();
 
-    return new CustomEvent('sl-page-change', {
-      detail: { source: 'sl-page-counter', value: id },
+    return new CustomEvent('wa-page-change', {
+      detail: { source: 'wa-page-counter', value: id },
       bubbles: true,
       composed: true
     });
@@ -173,8 +173,8 @@ export class PageCounter extends LitElement {
 
   private triggerPaginationReady() {
     if (!this.triggered) {
-      this.dispatchEvent(new CustomEvent('sl-page-ready', {
-        detail: { source: 'sl-paginator', value: this.activePage },
+      this.dispatchEvent(new CustomEvent('wa-page-ready', {
+        detail: { source: 'wa-paginator', value: this.activePage },
         bubbles: true,
         composed: true
       }));
@@ -204,13 +204,13 @@ export class PageCounter extends LitElement {
             lastIndex += 1;
           }
           pageItems.push({ index: 0, disabled: this.disabled, value: this.symbols ? this.symbols[0] : 1 });
-          pageItems.push({ index: -1, disabled: true });
+          pageItems.push({ index: -1, disabled: true, value: '...' });
           for (let i = firstIndex + 1; i < lastIndex - 1; i++) {
             const flag = this.disabled || this.activePage === (this.symbols ? i : (i + 1));
             pageItems.push({ index: i, disabled: flag, value: this.symbols ? this.symbols[i] : i + 1 });
           }
           if (firstIndex + 1 < lastIndex - 1) {
-            pageItems.push({ index: -1, disabled: true });
+            pageItems.push({ index: -1, disabled: true, value: '...'});
           }
           pageItems.push({
             index: this.symbols ? this.symbols.length - 1 : this.totalPages - 1,
@@ -235,13 +235,13 @@ export class PageCounter extends LitElement {
             const flag = this.disabled || this.activePage === (this.symbols ? i : (i + 1));
             pageItems.push({ index: i, disabled: flag, value: this.symbols ? this.symbols[i] : i + 1 });
           }
-          pageItems.push({ index: -1, disabled: true });
+          pageItems.push({ index: -1, disabled: true, value: '...' });
           if (lastValue) {
             pageItems.push({ index: this.symbols ? this.symbols.length - 1 : this.totalPages - 1, disabled: this.disabled, value: lastValue });
           }
         } else {
           pageItems.push({ index: 0, disabled: this.disabled, value: this.symbols ? this.symbols[0] : 1 });
-          pageItems.push({ index: -1, disabled: true });
+          pageItems.push({ index: -1, disabled: true, value: '...' });
           for (let i = halfSize; i < this.totalPages; i++) {
             const flag = this.disabled || this.activePage === (this.symbols ? i : (i + 1));
             pageItems.push({ index: i, disabled: flag, value: this.symbols ? this.symbols[i] : i + 1 });
@@ -261,9 +261,9 @@ export class PageCounter extends LitElement {
     const items = this.getPageItems();
 
     return html`
-      <sl-button-group class="button-group" label=${this.label}>
+      <wa-button-group class="button-group" label=${this.label}>
         ${when(this.showBoundaries, () => html`
-          <sl-button
+          <wa-button
             class="button boundary left ${this.variant}"
             ?labeled=${this.startBoundaryLabel}
             size=${this.size}
@@ -273,12 +273,12 @@ export class PageCounter extends LitElement {
           >
             ${when(this.startBoundaryLabel, () => html`${this.startBoundaryLabel}`)}
             ${when(!this.startBoundaryLabel, () => html`
-              <sl-icon name="chevron-double-left" label="go to first page"></sl-icon>
+              <wa-icon name="chevron-double-left" library="hack" label="go to first page"></wa-icon>
             `)}
-          </sl-button>
+          </wa-button>
         `)}
         ${when(this.showDirections, () => html`
-          <sl-button
+          <wa-button
             class="button side left ${this.variant}"
             ?labeled=${this.previousButtonLabel}
             size=${this.size}
@@ -288,23 +288,23 @@ export class PageCounter extends LitElement {
           >
             ${when(this.previousButtonLabel, () => html`${this.previousButtonLabel}`)}
             ${when(!this.previousButtonLabel, () => html`
-              <sl-icon name="chevron-left" label="go to previous page"></sl-icon>
+              <wa-icon name="chevron-left" library="hack" label="go to previous page"></wa-icon>
             `)}
-          </sl-button>
+          </wa-button>
         `)}
         <!-- Render page items here -->
         ${items.map(item => html`
-          <sl-button
+          <wa-button
             ?disabled=${item.disabled}
             class="button counter ${this.variant}"
             size=${this.size}
             @click=${(event: CustomEvent) => this.handleClickEvent(event, item.index)}
           >
             ${item.value}
-          </sl-button>
+          </wa-button>
         `)}
         ${when(this.showDirections, () => html`
-          <sl-button
+          <wa-button
             class="button side right ${this.variant}"
             ?labeled=${this.nextButtonLabel}
             size=${this.size}
@@ -314,12 +314,12 @@ export class PageCounter extends LitElement {
           >
             ${when(this.nextButtonLabel, () => html`${this.nextButtonLabel}`)}
             ${when(!this.nextButtonLabel, () => html`
-              <sl-icon name="chevron-right" label="go to next page"></sl-icon>
+              <wa-icon name="chevron-right" library="hack" label="go to next page"></wa-icon>
             `)}
-          </sl-button>
+          </wa-button>
         `)}
         ${when(this.showBoundaries, () => html`
-          <sl-button
+          <wa-button
             class="button boundary right ${this.variant}"
             ?labeled=${this.endBoundaryLabel}
             size=${this.size}
@@ -329,11 +329,11 @@ export class PageCounter extends LitElement {
           >
             ${when(this.endBoundaryLabel, () => html`${this.endBoundaryLabel}`)}
             ${when(!this.endBoundaryLabel, () => html`
-              <sl-icon name="chevron-double-right" label="go to last page"></sl-icon>
+              <wa-icon name="chevron-double-right" library="hack" label="go to last page"></wa-icon>
             `)}
-          </sl-button>
+          </wa-button>
         `)}
-      </sl-button-group>
+      </wa-button-group>
       ${this.triggerPaginationReady()}
     `;
   }
@@ -341,6 +341,6 @@ export class PageCounter extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sl-page-counter': PageCounter;
+    'wa-page-counter': PageCounter;
   }
 }

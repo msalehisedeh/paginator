@@ -5,36 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shoelace Pagination Demo</title>
 
-  <link rel="stylesheet" href="./themes/light.css" />
+  <link rel="stylesheet" href="./styles/webawesome.css" />
 
   <script type="module" src="./index.js"></script>
   <style>
     :root {
-      --sl-page-counter-alignment: right;
-      --sl-page-counter-label-alignment: right;
-      --sl-top-spacing: 5px;
+      --wa-page-counter-alignment: right;
+      --wa-page-counter-label-alignment: right;
+      --wa-top-spacing: 5px;
     }
     body {
       font-family: sans-serif;
       padding: 20px;
     }
     #poaginator2 {
-      --sl-selection-width: 130px;
+      --wa-selection-width: 130px;
     }
     #poaginator3 {
-      --sl-selection-width: 150px;
-      --sl-counter-background-color: cyan;
-      --sl-counter-border-color: cyan;
-      --sl-counter-text-color: blue;
+      --wa-selection-width: 150px;
+      --wa-counter-background-color: cyan;
+      --wa-counter-border-color: cyan;
+      --wa-counter-text-color: blue;
     }
     #padded {
-      --sl-pagination-counter-padding: 2px;
-      --sl-pagination-counter-radius: 4px;
+      --wa-pagination-counter-padding: 2px;
+      --wa-pagination-counter-radius: 4px;
     }
     @media screen and (max-width: 900px) {
       sl-paginator {
-        --sl-paginator-direction: column;
-        --sl-align-selerction: flex-end;
+        --wa-paginator-direction: column;
+        --wa-align-selerction: flex-end;
       }
     }
   </style>
@@ -42,32 +42,32 @@
 <body>
   <main>
     <h1>Pagination!</h1>
-    <sl-page-counter collectionSize="100" pageSize="10"></sl-page-counter>
+    <wa-page-counter collectionSize="100" pageSize="10"></wa-page-counter>
     <br />
     <br />
-    <sl-page-counter id="padded" collectionSize="100" pageSize="10" variant="primary"></sl-page-counter>
+    <wa-page-counter id="padded" collectionSize="100" pageSize="10" variant="primary"></wa-page-counter>
     <br />
     <br />
-    <sl-paginator  id="poaginator"><span slot="paginationAddon">Wow!!</span></sl-paginator>
+    <wa-paginator  id="poaginator"><span slot="paginationAddon">Wow!!</span></wa-paginator>
     <br />
     <br />
-    <sl-paginator  id="poaginator2" pill="true" variant="neutral" size="medium"><span slot="paginationAddon">Wow!!</span></sl-paginator>
+    <wa-paginator  id="poaginator2" pill="true" variant="neutral" size="medium"><span slot="paginationAddon">Wow!!</span></wa-paginator>
     <br />
     <br />
-    <sl-paginator  id="poaginator3" size="large"><span slot="paginationAddon">Wow!!</span></sl-paginator>
+    <wa-paginator  id="poaginator3" size="large"><span slot="paginationAddon">Wow!!</span></wa-paginator>
   </main>
   <script>
-    document.querySelector('sl-page-counter').addEventListener('sl-page-change', (e) => {
+    document.querySelector('wa-page-counter').addEventListener('wa-page-change', (e) => {
       console.log('Page changed to:', e.detail.value);
     });
 
-    document.querySelector('#poaginator').addEventListener('sl-page-change', (e) => {
+    document.querySelector('#poaginator').addEventListener('wa-page-change', (e) => {
       e.target.detail = 'Showing ' + e.detail.value + ' of:';
     });
-    document.querySelector('#poaginator2').addEventListener('sl-page-change', (e) => {
+    document.querySelector('#poaginator2').addEventListener('wa-page-change', (e) => {
       e.target.detail = 'Showing ' + e.detail.value + ' of:';
     });
-    document.querySelector('#poaginator3').addEventListener('sl-page-change', (e) => {
+    document.querySelector('#poaginator3').addEventListener('wa-page-change', (e) => {
       e.target.detail = 'Showing ' + e.detail.value + ' of:';
     });
     var paginator = document.getElementById('poaginator');

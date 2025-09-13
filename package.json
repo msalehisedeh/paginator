@@ -1,6 +1,6 @@
 {
   "name": "pagination",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A pagination component using Shoelace and Lit.",
   "type": "module",
   "scripts": {
@@ -16,7 +16,7 @@
   "author": "Masoud Salehisedeh",
   "license": "ISC",
   "dependencies": {
-    "@shoelace-style/shoelace": "^2.20.1",
+    "@awesome.me/webawesome": "^3.0.0-beta.5",
     "lit": "^3.3.1",
     "tslib": "^2.8.1"
   },

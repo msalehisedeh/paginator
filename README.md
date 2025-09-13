@@ -39,14 +39,14 @@ pageCounter
 ### Tokens
 | Attribute                         | Description                                                                                         |
 |-----------------------------------|-----------------------------------------------------------------------------------------------------|
-| --sl-pagination-boundary-padding  | Will space out the padding of pagination counter's boundary buttons.                                |
-| --sl-page-counter-alignment       | set the position of counter to the left or right or center.                                         |
-| --sl-counter-background-color     | sets the background color of buttons other than colors defined by variant option if not assigned.   |
-| --sl-counter-border-color         | sets the border color of buttons other than colors defined by variant option if not assigned.       |
-| --sl-counter-yext-color           | sets the text color of buttons other than colors defined by variant option if not assigned.         |
-| --sl-pagination-side-padding      | sets the padding of pagination as a whole.                                                          |
-| --sl-pagination-counter-padding   | sets padding between counter buttons.                                                               |
-| --sl-pagination-counter-radius    | sets border radious between counter buttons.                                                        |
+| --wa-pagination-boundary-padding  | Will space out the padding of pagination counter's boundary buttons.                                |
+| --wa-page-counter-alignment       | set the position of counter to the left or right or center.                                         |
+| --wa-counter-background-color     | sets the background color of buttons other than colors defined by variant option if not assigned.   |
+| --wa-counter-border-color         | sets the border color of buttons other than colors defined by variant option if not assigned.       |
+| --wa-counter-yext-color           | sets the text color of buttons other than colors defined by variant option if not assigned.         |
+| --wa-pagination-side-padding      | sets the padding of pagination as a whole.                                                          |
+| --wa-pagination-counter-padding   | sets padding between counter buttons.                                                               |
+| --wa-pagination-counter-radius    | sets border radious between counter buttons.                                                        |
 
 
 ### Attributes
@@ -91,11 +91,11 @@ Create a css file with the following and modify its value to fit your applicatio
 
 | Attribute                         | Description                                                                                         |
 |-----------------------------------|-----------------------------------------------------------------------------------------------------|
-| --sl-page-counter-label-alignment | set the counter slot position.                                                                      |
-| --sl-top-spacing                  | add top spacing to the pagination.                                                                  |
-| --sl-selection-width              | set the width of the dropdown.                                                                      |
-| --sl-paginator-direction          | set the direction of dropdown section and counter to row or column.                                 |
-| --sl-align-selerction             | set the dropdown section alignment to the left, right, or center. this would be ideal to manage smaller view frames. |
+| --wa-page-counter-label-alignment | set the counter slot position.                                                                      |
+| --wa-top-spacing                  | add top spacing to the pagination.                                                                  |
+| --wa-selection-width              | set the width of the dropdown.                                                                      |
+| --wa-paginator-direction          | set the direction of dropdown section and counter to row or column.                                 |
+| --wa-align-selerction             | set the dropdown section alignment to the left, right, or center. this would be ideal to manage smaller view frames. |
 
 ### Attributes
 

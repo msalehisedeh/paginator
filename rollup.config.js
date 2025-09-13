@@ -29,8 +29,8 @@ export default {
     image(),
     copy({
       targets: [
-        { src: 'node_modules/@shoelace-style/shoelace/dist/themes/light.css', dest: 'dist/themes' },
-        { src: 'node_modules/@shoelace-style/shoelace/cdn/assets', dest: 'dist' },
+        { src: 'node_modules/@awesome.me/webawesome/dist/styles', dest: 'dist' },
+        { src: 'src/hack', dest: 'dist' },
         { src: 'src/index.js', dest: 'dist' },
         { src: 'src/index.html', dest: 'dist' }
       ]
