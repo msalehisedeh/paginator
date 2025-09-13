@@ -125,4 +125,5 @@ Create a css file with the following and modify its value to fit your applicatio
 
 | Version | Description                                                                                                                    |
 |---------|--------------------------------------------------------------------------------------------------------------------------------|
-| 1.0.0   | First draft                                                                                                                    |
+| 1.0.0   | First draft using shoelace                                                                                                     |
+| 1.0.0   | First draft using webawesome                                                                                                   |
