@@ -27,12 +27,17 @@
       --wa-counter-border-color: cyan;
       --wa-counter-text-color: blue;
     }
+    #emoji {
+      --wa-counter-background-color: darkmagenta;
+      --wa-counter-border-color: darkmagenta;
+      --wa-counter-text-color: yellow;
+    }
     #padded {
       --wa-pagination-counter-padding: 2px;
       --wa-pagination-counter-radius: 4px;
     }
     @media screen and (max-width: 900px) {
-      sl-paginator {
+      wa-paginator {
         --wa-paginator-direction: column;
         --wa-align-selerction: flex-end;
       }
@@ -43,6 +48,9 @@
   <main>
     <h1>Pagination!</h1>
     <wa-page-counter collectionSize="100" pageSize="10"></wa-page-counter>
+    <br />
+    <br />
+    <wa-page-counter id="emoji" size="large"></wa-page-counter>
     <br />
     <br />
     <wa-page-counter id="padded" collectionSize="100" pageSize="10" variant="primary"></wa-page-counter>
@@ -70,9 +78,16 @@
     document.querySelector('#poaginator3').addEventListener('wa-page-change', (e) => {
       e.target.detail = 'Showing ' + e.detail.value + ' of:';
     });
+    var emoji = document.getElementById('emoji');
     var paginator = document.getElementById('poaginator');
     var paginator2 = document.getElementById('poaginator2');
     var paginator3 = document.getElementById('poaginator3');
+    if (emoji) {
+      emoji.showCounter = true;
+      emoji.currentPage = 1;
+      emoji.symbols = ['😀','😁','😂','🤣','😃','😄','😅','😆','😉','😊'];
+      emoji.itemLabel = '😀';
+    } 
     if (paginator) {
       paginator.showPaginator = true;
       paginator.pageOptions = '10,20,50';

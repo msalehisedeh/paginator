@@ -3,7 +3,7 @@
 
 Paginator and PageCounter are Web Components based on shoelace to display a mechanisem to assist pagination.
 
-**NOTE** Current version 1.0.0
+**NOTE** Current version 2.0.0
 
 Please send your requests or comments through [Comments/Requests](https://github.com/msalehisedeh/paginator/issues)
 
@@ -22,7 +22,7 @@ Get it from [NPM](https://www.npmjs.com/package/@sedeh/paginator)
 ## Dependencies
 
 ```javascript
-Shoelace
+web awesome
 
 EXPORTS:
 Paginator
@@ -34,7 +34,7 @@ pageCounter
 ### Events
 | Attribute                         | Description                                                                                         |
 |-----------------------------------|-----------------------------------------------------------------------------------------------------|
-| sl-page-change                    | triggered when a page is selected or page size is changed.                                          |
+| wa-page-change                    | triggered when a page is selected or page size is changed.                                          |
 
 ### Tokens
 | Attribute                         | Description                                                                                         |
@@ -77,8 +77,8 @@ pageCounter
 ### events
 | Attribute                         | Description                                                                                         |
 |-----------------------------------|-----------------------------------------------------------------------------------------------------|
-| sl-page-ready                     | triggered when paginator is displayed for the first time.                                           |
-| sl-page-change                    | triggered when a page is selected or page size is changed.                                          |
+| wa-page-ready                     | triggered when paginator is displayed for the first time.                                           |
+| wa-page-change                    | triggered when a page is selected or page size is changed.                                          |
 
 
 ### Slots
@@ -125,5 +125,5 @@ Create a css file with the following and modify its value to fit your applicatio
 
 | Version | Description                                                                                                                    |
 |---------|--------------------------------------------------------------------------------------------------------------------------------|
-| 1.0.0   | First draft using shoelace                                                                                                     |
-| 1.0.0   | First draft using webawesome                                                                                                   |
+| 1.0.0   | Draft using shoelace                                                                                                           |
+| 2.0.0   | Draft using webawesome                                                                                                         |

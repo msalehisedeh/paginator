@@ -142,7 +142,7 @@ export class Paginator extends LitElement {
             size=${this.size}
             id=${this.id ? this.id + '-page-size' : 'page-size'}
             ?pill=${this.pill}
-            @sl-change=${(event: CustomEvent) => this.selectPageSize(event)}
+            @wa-change=${(event: CustomEvent) => this.selectPageSize(event)}
           >
             ${this.pageOptions.split(',').map(item => html`<wa-option value=${item}>${item}</wa-option>`)}
           </wa-select>
