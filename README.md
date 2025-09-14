@@ -7,8 +7,6 @@ Paginator and PageCounter are Web Components based on shoelace to display a mech
 
 Please send your requests or comments through [Comments/Requests](https://github.com/msalehisedeh/paginator/issues)
 
-View it in action on [Live Demo](https://stackblitz.com/edit/paginator?file=app%2Fapp.component.ts)
-
 Get it from [NPM](https://www.npmjs.com/package/@sedeh/paginator)
 
 
