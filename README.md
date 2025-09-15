@@ -20,7 +20,8 @@ Get it from [NPM](https://www.npmjs.com/package/@sedeh/paginator)
 ## Dependencies
 
 ```javascript
-web awesome
+version 1: shoelace
+version 2: web awesome
 
 EXPORTS:
 Paginator
