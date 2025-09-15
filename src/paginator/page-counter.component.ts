@@ -273,7 +273,7 @@ export class PageCounter extends LitElement {
           >
             ${when(this.startBoundaryLabel, () => html`${this.startBoundaryLabel}`)}
             ${when(!this.startBoundaryLabel, () => html`
-              <wa-icon name="chevron-double-left" library="hack" label="go to first page"></wa-icon>
+              <wa-icon name="chevron-double-left" library="shoelace" label="go to first page"></wa-icon>
             `)}
           </wa-button>
         `)}
@@ -288,7 +288,7 @@ export class PageCounter extends LitElement {
           >
             ${when(this.previousButtonLabel, () => html`${this.previousButtonLabel}`)}
             ${when(!this.previousButtonLabel, () => html`
-              <wa-icon name="chevron-left" library="hack" label="go to previous page"></wa-icon>
+              <wa-icon name="chevron-left" library="shoelace" label="go to previous page"></wa-icon>
             `)}
           </wa-button>
         `)}
@@ -314,7 +314,7 @@ export class PageCounter extends LitElement {
           >
             ${when(this.nextButtonLabel, () => html`${this.nextButtonLabel}`)}
             ${when(!this.nextButtonLabel, () => html`
-              <wa-icon name="chevron-right" library="hack" label="go to next page"></wa-icon>
+              <wa-icon name="chevron-right" library="shoelace" label="go to next page"></wa-icon>
             `)}
           </wa-button>
         `)}
@@ -329,7 +329,7 @@ export class PageCounter extends LitElement {
           >
             ${when(this.endBoundaryLabel, () => html`${this.endBoundaryLabel}`)}
             ${when(!this.endBoundaryLabel, () => html`
-              <wa-icon name="chevron-double-right" library="hack" label="go to last page"></wa-icon>
+              <wa-icon name="chevron-double-right" library="shoelace" label="go to last page"></wa-icon>
             `)}
           </wa-button>
         `)}

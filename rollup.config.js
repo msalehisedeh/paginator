@@ -30,7 +30,7 @@ export default {
     copy({
       targets: [
         { src: 'node_modules/@awesome.me/webawesome/dist/styles', dest: 'dist' },
-        { src: 'src/hack', dest: 'dist' },
+        { src: 'src/shoelace', dest: 'dist' },
         { src: 'src/index.js', dest: 'dist' },
         { src: 'src/index.html', dest: 'dist' }
       ]

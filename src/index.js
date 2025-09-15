@@ -7,8 +7,8 @@ export { PageCounter };
 import { setBasePath, registerIconLibrary } from '@awesome.me/webawesome/dist/webawesome.js';
 setBasePath('./');
 
-registerIconLibrary('hack', {
-    resolver: name => `/hack/icons/${name}.svg`,
+registerIconLibrary('shoelace', {
+    resolver: name => `/shoelace/icons/${name}.svg`,
     mutator: svg => {
       svg.setAttribute('fill', 'currentColor');
     }
