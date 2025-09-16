@@ -48,7 +48,7 @@ export class PageCounter extends LitElement {
     .button::part(base) {
       height: 100%;
       border: 1px solid var(--wa-button-border-color, var(--wa-color-neutral-on-quiet));
-      font-weight: var(--wa-font-weight-medium);
+      font-weight: var(--wa-font-weight-bold);
       background-color: var(--wa-counter-background-color, var(--wa-color-neutral-on-loud));
       border-color: var(--wa-counter-border-color , var(--wa-color-neutral-border-normal));
       color: var(--wa-counter-text-color, var(--wa-color-neutral-50));
@@ -232,7 +232,7 @@ export class PageCounter extends LitElement {
         if (this.activePage < halfSize + 1) {
           const lastValue = this.symbols ? this.symbols[this.symbols.length - 1] : this.totalPages;
           for (let i = startIndex; i < halfSize; i++) {
-            const flag = this.disabled || this.activePage === (this.symbols ? i : (i + 1));
+            const flag = this.disabled || this.activePage === (i + 1);
             pageItems.push({ index: i, disabled: flag, value: this.symbols ? this.symbols[i] : i + 1 });
           }
           pageItems.push({ index: -1, disabled: true, value: '...' });
@@ -243,14 +243,14 @@ export class PageCounter extends LitElement {
           pageItems.push({ index: 0, disabled: this.disabled, value: this.symbols ? this.symbols[0] : 1 });
           pageItems.push({ index: -1, disabled: true, value: '...' });
           for (let i = halfSize; i < this.totalPages; i++) {
-            const flag = this.disabled || this.activePage === (this.symbols ? i : (i + 1));
+            const flag = this.disabled || this.activePage === (i + 1);
             pageItems.push({ index: i, disabled: flag, value: this.symbols ? this.symbols[i] : i + 1 });
           }
         }
       }
     } else {
       for (let i = 0; i < this.totalPages; i++) {
-        const flag = this.disabled || this.activePage === (this.symbols ? i : (i + 1));
+        const flag = this.disabled || this.activePage === (i + 1);
         pageItems.push({ index: i, disabled: flag, value: this.symbols ? this.symbols[i] : i + 1 });
       }
     }
