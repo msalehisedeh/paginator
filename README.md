@@ -52,7 +52,7 @@ pageCounter
 | Attribute          |Type       | Description                                                                                             |
 |--------------------|-----------|---------------------------------------------------------------------------------------------------------|
 | size                | String   | Paginator visual size (height, padding of each page slot). 'small', 'medium', 'large'. Default is small |
-| type                | String   | Paginator type. 'symbole', 'icon', 'number'. Default is number                                          |
+| type                | String   | Paginator type. 'symbole', 'icon', 'text', 'number'. Default is number                                  |
 | pill                | Boolean  | Show curves on sides of page counter and dropdown.                                                      |
 | showDirections      | Boolean  | Show arrow icons on the page counter.                                                                   |
 | pageSize            | Number   | number of items per page.                                                                               |
@@ -69,7 +69,7 @@ pageCounter
 | label               | String   | Label to be read by screen reader. Default is 'Paginator'.                                              |
 | startBoundaryLabel  | String   | label to be displayed on start boundary (e.g., 'Previous).                                              |
 | endBoundaryLabel    | String   | label to be displayed on end boundary (e.g., 'Next).                                                    |
-| items             | Array<any> | if given will display the items in the array instead of page numbers.                                   |
+| items               | Array<any> | Icon names, symbols, or text.  if given will display the items in the array instead of page numbers.  |
 
 
 ## Paginator Component
@@ -91,7 +91,7 @@ Create a css file with the following and modify its value to fit your applicatio
 
 | Attribute                         | Description                                                                                         |
 |-----------------------------------|-----------------------------------------------------------------------------------------------------|
-| --wa-page-counter-label-alignment | set the counter slot position.                                                                      |
+| --wa-description-alignment        | set the counter slot position.                                                                      |
 | --wa-top-spacing                  | add top spacing to the pagination.                                                                  |
 | --wa-selection-width              | set the width of the dropdown.                                                                      |
 | --wa-paginator-direction          | set the direction of dropdown section and counter to row or column.                                 |

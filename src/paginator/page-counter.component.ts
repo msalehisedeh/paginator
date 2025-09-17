@@ -117,7 +117,7 @@ export class PageCounter extends LitElement {
   @property({ type: String }) startBoundaryLabel!: string;
   @property({ type: String }) endBoundaryLabel!: string;
   @property({ type: String }) size: 'small' | 'medium' | 'large' = 'small';
-  @property({ type: String }) type: 'symbol' | 'icon' | 'number' = 'number';
+  @property({ type: String }) type: 'symbol' | 'icon' | 'text' | 'number' = 'number';
   @property({ type: String }) variant: 'default' | 'primary' | 'neutral' = 'default';  
   @property({ type: Array }) items!: Array<string>;
 

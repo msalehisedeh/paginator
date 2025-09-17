@@ -11,7 +11,7 @@
   <style>
     :root {
       --wa-page-counter-alignment: right;
-      --wa-page-counter-label-alignment: right;
+      --wa-description-alignment: right;
       --wa-top-spacing: 5px;
     }
     body {
@@ -28,6 +28,7 @@
       --wa-counter-text-color: blue;
     }
     #emoji {
+      --wa-page-counter-alignment: left;
       --wa-counter-background-color: darkmagenta;
       --wa-counter-border-color: darkmagenta;
       --wa-counter-text-color: yellow;
@@ -36,6 +37,11 @@
       --wa-counter-background-color: darkblue;
       --wa-counter-border-color: darkblue;
       --wa-counter-text-color: white;
+      --wa-pagination-counter-padding: 2px;
+      --wa-pagination-counter-radius: 4px;
+    }
+    #text {
+      --wa-page-counter-alignment: center;
       --wa-pagination-counter-padding: 2px;
       --wa-pagination-counter-radius: 4px;
     }
@@ -63,6 +69,9 @@
     <wa-page-counter id="iconlist" size="large"></wa-page-counter>
     <br />
     <br />
+    <wa-page-counter id="text" size="large"></wa-page-counter>
+    <br />
+    <br />
     <wa-page-counter id="padded" collectionSize="100" pageSize="10" variant="primary"></wa-page-counter>
     <br />
     <br />
@@ -88,24 +97,28 @@
     document.querySelector('#poaginator3').addEventListener('wa-page-change', (e) => {
       e.target.detail = 'Showing ' + e.detail.value + ' of:';
     });
+    var text = document.getElementById('text');
     var emoji = document.getElementById('emoji');
     var iconlist = document.getElementById('iconlist');
     var paginator = document.getElementById('poaginator');
     var paginator2 = document.getElementById('poaginator2');
     var paginator3 = document.getElementById('poaginator3');
     if (emoji) {
-      emoji.showCounter = true;
       emoji.currentPage = 1;
       emoji.type = 'symbol';
       emoji.items = ['😀','😁','😂','🤣','😃','😄','😅','😆','😉','😊'];
-      emoji.itemLabel = '😀';
     } 
     if (iconlist) {
-      iconlist.showCounter = true;
       iconlist.currentPage = 1;
+      iconlist.showBoundaries = true;
       iconlist.type = 'icon';
       iconlist.items = ['telephone','tools','stack','radioactive','person-circle','database'];
-      iconlist.itemLabel = 'Wow!!';
+    } 
+    if (text) {
+      text.showBoundaries = true;
+      text.currentPage = 3;
+      text.type = 'text';
+      text.items = ['telephone','tools','stack','radioactive','person','database'];
     } 
     if (paginator) {
       paginator.showPaginator = true;

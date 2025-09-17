@@ -32,7 +32,7 @@ export class Paginator extends LitElement {
       align-content: center;
       display: inline-block;
       padding: 0 5px;
-      text-align: var(--wa-page-counter-label-alignment, right);
+      text-align: var(--wa-description-alignment, right);
     }
     .page-counter span {
       height: 27px;
