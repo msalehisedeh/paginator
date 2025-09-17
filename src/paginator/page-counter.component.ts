@@ -117,15 +117,16 @@ export class PageCounter extends LitElement {
   @property({ type: String }) startBoundaryLabel!: string;
   @property({ type: String }) endBoundaryLabel!: string;
   @property({ type: String }) size: 'small' | 'medium' | 'large' = 'small';
+  @property({ type: String }) type: 'symbol' | 'icon' | 'number' = 'number';
   @property({ type: String }) variant: 'default' | 'primary' | 'neutral' = 'default';  
-  @property({ type: Array }) symbols!: Array<any>;
+  @property({ type: Array }) items!: Array<string>;
 
   private totalPages: number = 1;
   private startIndex: number = 0;
   private triggered: boolean = false;
 
   private getEvent(event: CustomEvent) {
-    const id = this.symbols ? this.symbols[this.activePage - 1] : this.activePage;
+    const id = this.items ? this.items[this.activePage - 1] : this.activePage;
 
     event.preventDefault();
     event.stopPropagation();
@@ -183,8 +184,8 @@ export class PageCounter extends LitElement {
   }
 
   private getPageItems(): Array<PaginationItemInterface> {
-    if (this.symbols) {
-      this.collectionSize = this.symbols.length;
+    if (this.items) {
+      this.collectionSize = this.items.length;
       this.pageSize = this.pageSize > this.collectionSize ? this.collectionSize : this.pageSize;
       this.startIndex = 0;
     }
@@ -203,55 +204,55 @@ export class PageCounter extends LitElement {
             firstIndex += 1;
             lastIndex += 1;
           }
-          pageItems.push({ index: 0, disabled: this.disabled, value: this.symbols ? this.symbols[0] : 1 });
+          pageItems.push({ index: 0, disabled: this.disabled, value: this.items ? this.items[0] : 1 });
           pageItems.push({ index: -1, disabled: true, value: '...' });
           for (let i = firstIndex + 1; i < lastIndex - 1; i++) {
-            const flag = this.disabled || this.activePage === (this.symbols ? i : (i + 1));
-            pageItems.push({ index: i, disabled: flag, value: this.symbols ? this.symbols[i] : i + 1 });
+            const flag = this.disabled || this.activePage === (this.items ? i : (i + 1));
+            pageItems.push({ index: i, disabled: flag, value: this.items ? this.items[i] : i + 1 });
           }
           if (firstIndex + 1 < lastIndex - 1) {
             pageItems.push({ index: -1, disabled: true, value: '...'});
           }
           pageItems.push({
-            index: this.symbols ? this.symbols.length - 1 : this.totalPages - 1,
+            index: this.items ? this.items.length - 1 : this.totalPages - 1,
             disabled: this.disabled,
-            value: this.symbols ? this.symbols[this.symbols.length - 1] : this.totalPages
+            value: this.items ? this.items[this.items.length - 1] : this.totalPages
           });
         } else {
           const index = this.activePage - this.maxSize;
           const firstIndex = index < 0 ? 0 : index;
           const lastIndex = firstIndex + this.maxSize;
           for (let i = firstIndex; i < lastIndex; i++) {
-            const flag = this.disabled || this.activePage === (this.symbols ? i : (i + 1));
-            pageItems.push({ index: i, disabled: flag, value: this.symbols ? this.symbols[i] : i + 1 });
+            const flag = this.disabled || this.activePage === (this.items ? i : (i + 1));
+            pageItems.push({ index: i, disabled: flag, value: this.items ? this.items[i] : i + 1 });
           }
         }
       } else {
         const halfSize = Math.floor(this.totalPages / 2);
         const startIndex = this.startIndex;
         if (this.activePage < halfSize + 1) {
-          const lastValue = this.symbols ? this.symbols[this.symbols.length - 1] : this.totalPages;
+          const lastValue = this.items ? this.items[this.items.length - 1] : this.totalPages;
           for (let i = startIndex; i < halfSize; i++) {
             const flag = this.disabled || this.activePage === (i + 1);
-            pageItems.push({ index: i, disabled: flag, value: this.symbols ? this.symbols[i] : i + 1 });
+            pageItems.push({ index: i, disabled: flag, value: this.items ? this.items[i] : i + 1 });
           }
           pageItems.push({ index: -1, disabled: true, value: '...' });
           if (lastValue) {
-            pageItems.push({ index: this.symbols ? this.symbols.length - 1 : this.totalPages - 1, disabled: this.disabled, value: lastValue });
+            pageItems.push({ index: this.items ? this.items.length - 1 : this.totalPages - 1, disabled: this.disabled, value: lastValue });
           }
         } else {
-          pageItems.push({ index: 0, disabled: this.disabled, value: this.symbols ? this.symbols[0] : 1 });
+          pageItems.push({ index: 0, disabled: this.disabled, value: this.items ? this.items[0] : 1 });
           pageItems.push({ index: -1, disabled: true, value: '...' });
           for (let i = halfSize; i < this.totalPages; i++) {
             const flag = this.disabled || this.activePage === (i + 1);
-            pageItems.push({ index: i, disabled: flag, value: this.symbols ? this.symbols[i] : i + 1 });
+            pageItems.push({ index: i, disabled: flag, value: this.items ? this.items[i] : i + 1 });
           }
         }
       }
     } else {
       for (let i = 0; i < this.totalPages; i++) {
         const flag = this.disabled || this.activePage === (i + 1);
-        pageItems.push({ index: i, disabled: flag, value: this.symbols ? this.symbols[i] : i + 1 });
+        pageItems.push({ index: i, disabled: flag, value: this.items ? this.items[i] : i + 1 });
       }
     }
     return pageItems;
@@ -300,7 +301,8 @@ export class PageCounter extends LitElement {
             size=${this.size}
             @click=${(event: CustomEvent) => this.handleClickEvent(event, item.index)}
           >
-            ${item.value}
+            ${when(this.type !== 'icon', () => html`${item.value}`)}
+            ${when(this.type === 'icon', () => html`<wa-icon name="${item.value}" library="shoelace" label="${item.value}"></wa-icon>`)}            
           </wa-button>
         `)}
         ${when(this.showDirections, () => html`

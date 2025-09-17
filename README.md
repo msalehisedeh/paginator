@@ -52,6 +52,7 @@ pageCounter
 | Attribute          |Type       | Description                                                                                             |
 |--------------------|-----------|---------------------------------------------------------------------------------------------------------|
 | size                | String   | Paginator visual size (height, padding of each page slot). 'small', 'medium', 'large'. Default is small |
+| type                | String   | Paginator type. 'symbole', 'icon', 'number'. Default is number                                          |
 | pill                | Boolean  | Show curves on sides of page counter and dropdown.                                                      |
 | showDirections      | Boolean  | Show arrow icons on the page counter.                                                                   |
 | pageSize            | Number   | number of items per page.                                                                               |
@@ -68,7 +69,7 @@ pageCounter
 | label               | String   | Label to be read by screen reader. Default is 'Paginator'.                                              |
 | startBoundaryLabel  | String   | label to be displayed on start boundary (e.g., 'Previous).                                              |
 | endBoundaryLabel    | String   | label to be displayed on end boundary (e.g., 'Next).                                                    |
-| symbols             | Array<any> | if given will display the symbols in the array instead of page numbers.                               |
+| items             | Array<any> | if given will display the items in the array instead of page numbers.                                   |
 
 
 ## Paginator Component

@@ -32,6 +32,13 @@
       --wa-counter-border-color: darkmagenta;
       --wa-counter-text-color: yellow;
     }
+    #iconlist {
+      --wa-counter-background-color: darkblue;
+      --wa-counter-border-color: darkblue;
+      --wa-counter-text-color: white;
+      --wa-pagination-counter-padding: 2px;
+      --wa-pagination-counter-radius: 4px;
+    }
     #padded {
       --wa-pagination-counter-padding: 2px;
       --wa-pagination-counter-radius: 4px;
@@ -51,6 +58,9 @@
     <br />
     <br />
     <wa-page-counter id="emoji" size="large"></wa-page-counter>
+    <br />
+    <br />
+    <wa-page-counter id="iconlist" size="large"></wa-page-counter>
     <br />
     <br />
     <wa-page-counter id="padded" collectionSize="100" pageSize="10" variant="primary"></wa-page-counter>
@@ -79,14 +89,23 @@
       e.target.detail = 'Showing ' + e.detail.value + ' of:';
     });
     var emoji = document.getElementById('emoji');
+    var iconlist = document.getElementById('iconlist');
     var paginator = document.getElementById('poaginator');
     var paginator2 = document.getElementById('poaginator2');
     var paginator3 = document.getElementById('poaginator3');
     if (emoji) {
       emoji.showCounter = true;
       emoji.currentPage = 1;
-      emoji.symbols = ['😀','😁','😂','🤣','😃','😄','😅','😆','😉','😊'];
+      emoji.type = 'symbol';
+      emoji.items = ['😀','😁','😂','🤣','😃','😄','😅','😆','😉','😊'];
       emoji.itemLabel = '😀';
+    } 
+    if (iconlist) {
+      iconlist.showCounter = true;
+      iconlist.currentPage = 1;
+      iconlist.type = 'icon';
+      iconlist.items = ['telephone','tools','stack','radioactive','person-circle','database'];
+      iconlist.itemLabel = 'Wow!!';
     } 
     if (paginator) {
       paginator.showPaginator = true;
